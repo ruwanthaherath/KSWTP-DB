@@ -1,0 +1,212 @@
+<%- include("header") -%>
+
+<div class="form-body">
+    <div class="row">
+        <div class="form-holder">
+            <div class="form-content">
+                <div class="form-items">
+
+                  <div class="row">
+                  <div class="col-md-11">
+                    <h3>Jar Test Data - <%= currentYear %></h3>
+                  </div>
+                  <div class="col-md-1">
+                    <div class="form-button mt-3">
+                        <button id="submit" type="submit" class="btn btn-primary btnRunHours">></button>
+                    </div>
+                  </div>
+                  </div>
+
+                    <p>Central South Water Treatment Plant</p>
+                    <form class="requires-validation" action="/jar" method="post" novalidate>
+
+                      <p>Date : <%= currentDate  %></p>
+
+
+                      <div class="col-md-12">
+                         <input class="form-control" type="text" name="turbidityJRW" placeholder="Turbidity - Raw Water" required>
+                         <div class="valid-feedback">You entered the Turbidity - Raw Water!</div>
+                         <div class="invalid-feedback">Please enter the Turbidity - Raw Water!</div>
+                      </div>
+
+                      <div class="col-md-12">
+                          <input class="form-control oncePerDay" type="text" name="pHJData" placeholder="pH - Raw Water" required>
+                          <div class="valid-feedback">You entered the pH - Raw Water!</div>
+                          <div class="invalid-feedback">Please enter the pH - Raw Water!</div>
+                      </div>
+
+                        <div class="col-md-12">
+                            <input class="form-control oncePerDay" type="text" name="conductivityJ" placeholder="Conductivity - Raw Water" required>
+                            <div class="valid-feedback">You entered the Conductivity - Raw Water!</div>
+                            <div class="invalid-feedback">Please enter the Conductivity - Raw Water!</div>
+                        </div>
+
+
+
+
+                       <div class="row">
+
+                      <div class="col-md-4">
+                        <p class = "beakerName">First beaker</p>
+                      </div>
+
+                       <div class="col-md-4">
+                        <input class="form-control" type="text" name="turbidityB1" placeholder="Turbidity 1" required>
+                        <div class="valid-feedback">You entered the Turbidity - Beaker 1!</div>
+                        <div class="invalid-feedback">Please enter the Turbidity - Beaker 1!</div>
+                       </div>
+
+                       <div class="col-md-4">
+                        <input class="form-control" type="text" name="pacB1" placeholder="PAC dose 1" required>
+                        <div class="valid-feedback">You entered the PAC(ppm) - Beaker 1!</div>
+                        <div class="invalid-feedback">Please enter the PAC(ppm) - Beaker 1!</div>
+                       </div>
+
+                     </div>
+
+                     <div class="row">
+
+                    <div class="col-md-4">
+                      <p class = "beakerName">Second beaker</p>
+                    </div>
+
+                     <div class="col-md-4">
+                      <input class="form-control" type="text" name="turbidityB2" placeholder="Turbidity 2" required>
+                      <div class="valid-feedback">You entered the Turbidity - Beaker 2!</div>
+                      <div class="invalid-feedback">Please enter the Turbidity - Beaker 2!</div>
+                     </div>
+
+                     <div class="col-md-4">
+                      <input class="form-control" type="text" name="pacB2" placeholder="PAC dose 2" required>
+                      <div class="valid-feedback">You entered the PAC(ppm) - Beaker 2!</div>
+                      <div class="invalid-feedback">Please enter the PAC(ppm) - Beaker 2!</div>
+                     </div>
+
+                     </div>
+
+
+                     <div class="row">
+
+                    <div class="col-md-4">
+                      <p class = "beakerName">Third beaker</p>
+                    </div>
+
+                     <div class="col-md-4">
+                      <input class="form-control" type="text" name="turbidityB3" placeholder="Turbidity 3" required>
+                      <div class="valid-feedback">You entered the Turbidity - Beaker 3!</div>
+                      <div class="invalid-feedback">Please enter the Turbidity - Beaker 3!</div>
+                     </div>
+
+                     <div class="col-md-4">
+                      <input class="form-control" type="text" name="pacB3" placeholder="PAC dose 3" required>
+                      <div class="valid-feedback">You entered the PAC(ppm) - Beaker 3!</div>
+                      <div class="invalid-feedback">Please enter the PAC(ppm) - Beaker 3!</div>
+                     </div>
+
+                     </div>
+
+                     <div class="row">
+
+                    <div class="col-md-4">
+                      <p class = "beakerName">Fourth beaker</p>
+                    </div>
+
+                     <div class="col-md-4">
+                      <input class="form-control" type="text" name="turbidityB4" placeholder="Turbidity 4" required>
+                      <div class="valid-feedback">You entered the Turbidity - Beaker 4!</div>
+                      <div class="invalid-feedback">Please enter the Turbidity - Beaker 4!</div>
+                     </div>
+
+                     <div class="col-md-4">
+                      <input class="form-control" type="text" name="pacB4" placeholder="PAC dose 4" required>
+                      <div class="valid-feedback">You entered the PAC(ppm) - Beaker 4!</div>
+                      <div class="invalid-feedback">Please enter the PAC(ppm) - Beaker 4!</div>
+                     </div>
+
+                     </div>
+
+
+                     <div class="row">
+
+                    <div class="col-md-4">
+                      <p class = "beakerName">Fifth beaker</p>
+                    </div>
+
+                     <div class="col-md-4">
+                      <input class="form-control" type="text" name="turbidityB5" placeholder="Turbidity 5" required>
+                      <div class="valid-feedback">You entered the Turbidity - Beaker 5!</div>
+                      <div class="invalid-feedback">Please enter the Turbidity - Beaker 5!</div>
+                     </div>
+
+                     <div class="col-md-4">
+                      <input class="form-control" type="text" name="pacB5" placeholder="PAC dose 5" required>
+                      <div class="valid-feedback">You entered the PAC dose - Beaker 5!</div>
+                      <div class="invalid-feedback">Please enter the PAC dose - Beaker 5!</div>
+                     </div>
+
+                     </div>
+
+
+
+                       <div class="row">
+                     <div class="col-md-6">
+                        <input class="form-control" type="text" name="turbiditySel" placeholder="Select a turbidity value" required>
+                        <div class="valid-feedback">You selected a turbidity value!</div>
+                        <div class="invalid-feedback">Please select a turbidity value!</div>
+                     </div>
+
+                     <div class="col-md-6">
+                        <input class="form-control prod" type="text" name="pacSel" placeholder="Select a PAC dose" required>
+                        <div class="valid-feedback">You selected a PAC dose!</div>
+                        <div class="invalid-feedback">Please select a PAC dose!</div>
+                     </div>
+                     </div>
+
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+                      <label class="form-check-label">I confirm that all data are correct</label>
+                      <div class="invalid-feedback">Please confirm that the entered data are all correct!</div>
+                    </div>
+
+
+                        <div class="form-button mt-3">
+                            <button id="submit" type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        </div>
+</div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+<script>
+
+    // $("button.btnJar").on("click", function(){
+    //   window.location.replace("http://localhost:3000/jar"); //Need to change at deployment
+    // });
+
+
+
+(function () {
+'use strict'
+const forms = document.querySelectorAll('.requires-validation')
+Array.from(forms)
+  .forEach(function (form) {
+    form.addEventListener('submit', function (event) {
+      if (!form.checkValidity()) {
+        event.preventDefault()
+        event.stopPropagation()
+      }
+
+      form.classList.add('was-validated')
+    }, false)
+  })
+})()
+
+
+</script>
+
+<%- include("footer") -%>

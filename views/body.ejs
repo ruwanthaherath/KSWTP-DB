@@ -1,0 +1,247 @@
+<%- include("header") -%>
+
+<div class="form-body">
+    <div class="row">
+        <div class="form-holder">
+            <div class="form-content">
+                <div class="form-items">
+
+                  <div class="row">
+                  <div class="col-md-11">
+                    <h3>Energy Data - <%= currentYear %></h3>
+
+                  </div>
+                  <div class="col-md-1">
+                    <div class="form-button mt-3">
+                        <button id="submit" type="submit" class="btn btn-primary btnQulity">></button>
+                    </div>
+                  </div>
+                  </div>
+
+                    <p>Central South Water Treatment Plant</p>
+
+                    <form class="requires-validation" action="/" method="post" novalidate>
+
+                      <div class="row">
+                        <div class="col-md-6">
+                            <select class="form-select mt-3 selectYear" name="year" required>
+                                  <option selected disabled value="">Year</option>
+                                  <option value="2020">2020</option>
+                                  <option value="2021">2021</option>
+                                  <option value="2022">2022</option>
+                                  <option value="2023">2023</option>
+                                  <option value="2024">2024</option>
+                                  <option value="2025">2025</option>
+                                  <option value="2026">2026</option>
+                                  <option value="2027">2027</option>
+                                  <option value="2028">2028</option>
+                                  <option value="2029">2029</option>
+                                  <option value="2030">2030</option>
+                           </select>
+                           <div class="valid-feedback">You selected the year!</div>
+                           <div class="invalid-feedback">Please select the year!</div>
+                       </div>
+
+                       <div class="col-md-6">
+                        <select class="form-select mt-3 selectMonth" name="month" required>
+                              <option selected disabled value="">Month</option>
+                              <option value="January">January</option>
+                              <option value="February">February</option>
+                              <option value="March">March</option>
+                              <option value="April">April</option>
+                              <option value="May">May</option>
+                              <option value="June">June</option>
+                              <option value="July">July</option>
+                              <option value="August">August</option>
+                              <option value="September">September</option>
+                              <option value="October">October</option>
+                              <option value="November">November</option>
+                              <option value="December">December</option>
+                       </select>
+                       <div class="valid-feedback">You selected the month!</div>
+                       <div class="invalid-feedback">Please select the month!</div>
+
+                        </div>
+                      </div>
+
+
+                      <div class="col-md-12">
+                       <select class="form-select mt-3 selectSite" name = "site" required>
+                             <option selected disabled value="">Site Name</option>
+                             <option value="CSWTP">Central South WTP</option>
+                             <option value="Madarangoda">Madarangoda BPH</option>
+                             <option value="Maligathanna">Maligathanna BPH</option>
+                             <option value="Kandakaduwa">Kandakaduwa BPH</option>
+                             <option value="Kehelwala">Kehelwala BPH</option>
+                             <option value="Mahakanda">Mahakanda BPH</option>
+                             <option value="MobrayI">Mobray I BPH</option>
+                             <option value="Augustawatta">Augustawatta BPH</option>
+                             <option value="Daulagala">Daulagala BPH</option>
+                      </select>
+
+                      <div class="valid-feedback">You selected the site!</div>
+                      <div class="invalid-feedback">Please select the site!</div>
+                       </div>
+
+
+                      <p class = "accountNo">Account No : </p>
+
+
+                        <div class="col-md-12">
+                           <input class="form-control nonI2I3 kva" type="text" name="kvaData" placeholder="kVA" required disabled>
+                           <div class="valid-feedback">You entered the kVA!</div>
+                           <div class="invalid-feedback">Please enter the kVA!</div>
+                        </div>
+
+
+
+                        <div class="col-md-12">
+                            <input class="form-control nonI2I3 kwh-p" type="text" name="kWhPeak" placeholder="kWh-Peak" required disabled>
+                            <div class="valid-feedback">You entered the peak kWh!</div>
+                            <div class="invalid-feedback">Please enter the peak kWh!</div>
+                        </div>
+
+
+                       <div class="col-md-12">
+                          <input class="form-control nonI2I3 kwh-op" type="text" name="kWhOffPeak" placeholder="kWh-Offpeak" required disabled>
+                          <div class="valid-feedback">You entered the off peak kWh!</div>
+                          <div class="invalid-feedback">Please enter the off peak kWh!</div>
+                       </div>
+
+
+                       <div class="col-md-12">
+                        <input class="form-control kwh-d" type="text" name="kWhDay" placeholder="kWh-Day" required disabled>
+                        <div class="valid-feedback">You entered the kWh!</div>
+                        <div class="invalid-feedback">Please enter the kWh!</div>
+                       </div>
+
+                     <div class="col-md-12">
+                        <input class="form-control" type="text" name="totalCost" placeholder="Total Cost" required disabled>
+                        <div class="valid-feedback">You entered the Total cost!</div>
+                        <div class="invalid-feedback">Please enter the Total cost!</div>
+                     </div>
+
+                     <div class="col-md-12">
+                        <input class="form-control prod" type="text" name="production" placeholder="Monthly production" required disabled>
+                        <div class="valid-feedback">You entered the production!</div>
+                        <div class="invalid-feedback">Please enter the production!</div>
+                     </div>
+
+
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+                      <label class="form-check-label">I confirm that all data are correct</label>
+                      <div class="invalid-feedback">Please confirm that the entered data are all correct!</div>
+                    </div>
+
+                        <div class="form-button mt-3">
+                            <button id="submit" type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+        </div>
+</div>
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+<script>
+
+  $("button.btnQulity").on("click", function(){
+    window.location.replace("http://localhost:3000/qulity"); //Need to change at deployment
+  });
+
+$("select.selectSite").change (function () {
+       var siteName = $(this).children("option:selected").val();
+
+       switch (siteName){
+         case "CSWTP":
+          $("p.accountNo").text("Account No : 1770100989");
+         break;
+
+         case "Madarangoda":
+          $("p.accountNo").text("Account No : 1770101020");
+         break;
+
+         case "Maligathanna":
+          $("p.accountNo").text("Account No : 1711040703");
+         break;
+
+         case "Kandakaduwa":
+          $("p.accountNo").text("Account No : 1770101012");
+         break;
+
+         case "Kehelwala":
+          $("p.accountNo").text("Account No : 1710340207");
+         break;
+
+         case "Mahakanda":
+          $("p.accountNo").text("Account No : 1711040800");
+         break;
+
+         case "MobrayI":
+          $("p.accountNo").text("Account No : 1710340304");
+         break;
+
+         case "Augustawatta":
+          $("p.accountNo").text("Account No : 7770101360");
+         break;
+
+         case "Daulagala":
+          $("p.accountNo").text("Account No : 1713114801");
+         break;
+
+         default:
+         alert("Invalid account!")
+
+       }
+
+       if(siteName === "Maligathanna"||siteName === "Kehelwala"||siteName === "Mahakanda"||siteName === "MobrayI"||siteName === "Daulagala"){
+         $("input").attr("disabled", false);
+         $("input.kwh-d").attr("placeholder", "kWh");
+         $("input.nonI2I3").attr("disabled", true);
+         $("input.nonI2I3").attr("placeholder", "-");
+       } else {
+         $("input").attr("disabled", false);
+         $("input.kva").attr("placeholder", "kVA");
+         $("input.kwh-d").attr("placeholder", "kWh-Day");
+         $("input.kwh-p").attr("placeholder", "kWh-Peak");
+         $("input.kwh-op").attr("placeholder", "kWh-Offpeak");
+       }
+
+       if(siteName === "CSWTP"){
+         $("input").attr("disabled", false);
+         $("input.prod").attr("placeholder", "Production");
+       } else {
+         $("input.prod").attr("disabled", true);
+         $("input.prod").attr("placeholder", "-");
+       }
+
+   });
+
+(function () {
+'use strict'
+const forms = document.querySelectorAll('.requires-validation')
+Array.from(forms)
+  .forEach(function (form) {
+    form.addEventListener('submit', function (event) {
+      if (!form.checkValidity()) {
+        event.preventDefault()
+        event.stopPropagation()
+      }
+
+      form.classList.add('was-validated')
+    }, false)
+  })
+})()
+
+
+
+
+</script>
+
+<%- include("footer") -%>

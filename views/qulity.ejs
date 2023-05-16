@@ -1,0 +1,121 @@
+<%- include("header") -%>
+
+<div class="form-body">
+    <div class="row">
+        <div class="form-holder">
+            <div class="form-content">
+                <div class="form-items">
+
+                  <div class="row">
+                  <div class="col-md-11">
+                    <h3>Water Qulity Data - <%= currentYear %></h3>
+                  </div>
+                  <div class="col-md-1">
+                    <div class="form-button mt-3">
+                        <button id="submit" type="submit" class="btn btn-primary btnJar">></button>
+                    </div>
+                  </div>
+                  </div>
+
+                    <p>Central South Water Treatment Plant</p>
+                    <form class="requires-validation" action="/qulity" method="post" novalidate>
+
+                      <p>Date : <%= currentDate  %></p>
+
+                        <div class="col-md-12">
+                        <%  if(6 < currentHour && currentHour < 9 ){ %>
+                            <input class="form-control oncePerDay" type="text" name="conductivity" placeholder="Conductivity - Should enter between 6 AM to 9 AM" required>
+                            <div class="valid-feedback">You entered the Conductivity!</div>
+                            <div class="invalid-feedback">Please enter the Conductivity!</div>
+                        <%  } else { %>
+                            <input class="form-control oncePerDay" type="text" name="conductivity" placeholder="Conductivity - Should enter between 6 AM to 9 AM" required disabled>
+                        <%  }  %>
+                        </div>
+
+
+
+                        <div class="col-md-12">
+                        <%  if(6 < currentHour && currentHour < 9 ){ %>
+                            <input class="form-control oncePerDay" type="text" name="pHData" placeholder="pH - Should enter between 6 AM to 9 AM" required>
+                            <div class="valid-feedback">You entered the pH!</div>
+                            <div class="invalid-feedback">Please enter the pH!</div>
+                        <%  } else { %>
+                        <input class="form-control oncePerDay" type="text" name="pHData" placeholder="pH - Should enter between 6 AM to 9 AM" required disabled>
+                        <%  }  %>
+                        </div>
+
+
+                       <div class="col-md-12">
+                          <input class="form-control" type="text" name="turbidityRW" placeholder="Turbidity - Raw Water" required>
+                          <div class="valid-feedback">You entered the Turbidity - Raw Water!</div>
+                          <div class="invalid-feedback">Please enter the Turbidity - Raw Water!</div>
+                       </div>
+
+
+                       <div class="col-md-12">
+                        <input class="form-control kwh-d" type="text" name="turbidityPO" placeholder="Turbidity - Pulsator output" required>
+                        <div class="valid-feedback">You entered the Turbidity - Pulsator output!</div>
+                        <div class="invalid-feedback">Please enter the Turbidity - Pulsator output!</div>
+                       </div>
+
+                     <div class="col-md-12">
+                        <input class="form-control" type="text" name="turbidityCWS" placeholder="Turbidity - Clear Water Sump" required>
+                        <div class="valid-feedback">You entered the Turbidity - Clear Water Sump!</div>
+                        <div class="invalid-feedback">Please enter the Turbidity - Clear Water Sump!</div>
+                     </div>
+
+                     <div class="col-md-12">
+                        <input class="form-control prod" type="text" name="rcl" placeholder="RCL - Clear Water Sump" required>
+                        <div class="valid-feedback">You entered the RCL - Clear Water Sump!</div>
+                        <div class="invalid-feedback">Please enter the RCL - Clear Water Sump!</div>
+                     </div>
+
+
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+                      <label class="form-check-label">I confirm that all data are correct</label>
+                      <div class="invalid-feedback">Please confirm that the entered data are all correct!</div>
+                    </div>
+
+
+                        <div class="form-button mt-3">
+                            <button id="submit" type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        </div>
+</div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+<script>
+
+    $("button.btnJar").on("click", function(){
+      window.location.replace("http://localhost:3000/jar"); //Need to change at deployment
+    });
+
+
+
+(function () {
+'use strict'
+const forms = document.querySelectorAll('.requires-validation')
+Array.from(forms)
+  .forEach(function (form) {
+    form.addEventListener('submit', function (event) {
+      if (!form.checkValidity()) {
+        event.preventDefault()
+        event.stopPropagation()
+      }
+
+      form.classList.add('was-validated')
+    }, false)
+  })
+})()
+
+
+</script>
+
+<%- include("footer") -%>
