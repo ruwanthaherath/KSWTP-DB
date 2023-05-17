@@ -10,7 +10,7 @@
 
 html, body {
     height: 100%;
-    background-color: #152733;
+    background-color:#152733;
     overflow: hidden;
     overflow-y: auto;
 }
@@ -173,5 +173,38 @@ html, body {
 .beakerName{
   position: relative;
   top : 25px;
+}
 
+
+.centered {
+    padding-top: 200px;
+    text-align: center;
+}
+
+.secret-text {
+  text-align: center;
+  font-size: 2rem;
+  color: #fff;
+  background-color: #000;
+}
+
+.btnHomeReg{
+  width: 150px;
+}
+
+.regFormBtn{
+  position: relative;
+  top: 20px;
+  width: 100px;
+}
+
+.regFormLbl{
+  position: relative;
+  top: 15px;
+}
+
+.homeItem{
+ position: relative;
+ left: 160px;
+ top: 15px;
 }

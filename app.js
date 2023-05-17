@@ -2,15 +2,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const ejs = require("ejs");
 const mongoose = require('mongoose');
-
-const app = express();
-
-app.set("view engine", "ejs");
-
-app.use(bodyParser.urlencoded({
-  extended: true
-}));
-app.use(express.static("public"));
+const md5 = require("md5");
 
 const d = new Date();
 let year = d.getFullYear();
@@ -20,7 +12,20 @@ let time = d.toLocaleString("en-US", { hour: "numeric", minute: "numeric", hour1
 
 let waterQulityFlag = false;
 
+const app = express();
+
+app.use(express.static("public"));
+app.set("view engine", "ejs");
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
+
 mongoose.connect("mongodb://localhost:27017/kswtpDB", {useNewUrlParser: true, useUnifiedTopology: true});
+
+const userSchema = new mongoose.Schema ({
+  username: String,
+  password: String
+});
 
 const energyParameterSchema = new mongoose.Schema({
   year:Number,
@@ -81,14 +86,57 @@ const jarTestSchema = new mongoose.Schema({
 const Energy = mongoose.model("Energy", energyParameterSchema);
 const WaterQulity = mongoose.model("WaterQulity", waterQulityParameterSchema);
 const JarTest = mongoose.model("JarTest", jarTestSchema);
+const User = mongoose.model("User", userSchema);
 
-// ********************************************************************************
-app.get("/", function(req, res) {
-  res.render("body", {currentYear: year});
+
+  app.get("/", function(req, res){
+    res.render("home");
+  });
+
+  app.get("/login", function(req, res){
+    res.render("login");
+  });
+
+  app.get("/register", function(req, res){
+    res.render("register");
+  });
+
+  app.post("/register", function(req, res){
+  const newUser =  new User({
+    username: req.body.username,
+    password: md5(req.body.password)
+  });
+  newUser.save(function(err){
+    if (err) {
+      console.log(err);
+    } else {
+          res.render("body", {currentYear: year});
+    }
+  });
 });
 
+app.post("/login", function(req, res){
+  const username = req.body.username;
+  const password = md5(req.body.password);
 
-app.post("/", function(req, res){
+  User.findOne({username: username}, function(err, foundUser){
+    if (err) {
+      console.log(err);
+    } else {
+      if (foundUser) {
+        if (foundUser.password === password) {
+          res.render("body", {currentYear: year});
+        }
+      } else{
+        res.redirect("/");
+      }
+    }
+  });
+});
+
+// ********************************************************************************
+
+app.post("/body", function(req, res){
 
 const siteName = req.body.site;
 let accNo = 0;
@@ -161,7 +209,7 @@ if(siteName === "Maligathanna"||siteName === "Kehelwala"||siteName === "Mahakand
       console.log(err);
     }
   });
-    res.redirect("/");
+    res.redirect("/body");
 
 } else if(siteName === "CSWTP"){
 
@@ -194,7 +242,7 @@ newEnergy.save(function(err){
     console.log(err);
   }
 });
-  res.redirect("/");
+  res.redirect("/body");
 
 } else{
 
@@ -227,7 +275,7 @@ newEnergy.save(function(err){
       console.log(err);
     }
   });
-    res.redirect("/");
+    res.redirect("/body");
 
 }
 
@@ -332,7 +380,6 @@ app.post("/jar", function(req, res){
 });
 
 // *****************************************************************************************************
-
 app.listen(3000, function() {
   console.log("Server started on port 3000...");
 });
