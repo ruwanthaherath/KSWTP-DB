@@ -190,6 +190,10 @@
 
 <script>
 
+  $("button.btnRunHours").on("click", function(){
+    window.location.replace("http://localhost:3000/logout"); //Need to change at deployment
+  });
+
 (function () {
 'use strict'
 const forms = document.querySelectorAll('.requires-validation')

@@ -3,6 +3,7 @@ const bodyParser = require("body-parser");
 const ejs = require("ejs");
 const mongoose = require('mongoose');
 const md5 = require("md5");
+const emailValidator = require("deep-email-validator");
 
 const d = new Date();
 let year = d.getFullYear();
@@ -118,19 +119,45 @@ const User = mongoose.model("User", userSchema);
   }
   });
 
-  app.post("/register", function(req, res){
-    const newUser =  new User({
-      username: req.body.username,
-      password: md5(req.body.password)
-    });
-    newUser.save(function(err){
-      if (err) {
-        console.log(err);
-      } else {
-            authenticated = true;
-            res.render("body", {currentYear: year});
+  app.get("/logout", function(req, res){
+    if(authenticated === true){
+    res.render("logout");
+    } else {
+      res.redirect("/");
+    }
+  });
+
+  app.post("/register", async function(req, res) {
+      const email = req.body.username;
+      const password = req.body.password;
+
+      if (!email || !password){
+        res.render("register");
       }
-    });
+
+      else{
+
+        const valid = await emailValidator.validate(email);
+
+        if (valid){
+
+          const newUser =  new User({
+            username: email,
+            password: md5(password)
+          });
+
+            newUser.save(function(err){
+              if (err) {
+                console.log(err);
+              } else {
+                    authenticated = true;
+                    res.render("body", {currentYear: year});
+              }
+            });
+      } else{
+        res.render("register");
+      }
+    }
   });
 
   app.post("/login", function(req, res){
@@ -381,6 +408,11 @@ const User = mongoose.model("User", userSchema);
     });
 
       res.redirect("/jar");
+  });
+
+  app.post("/logout", function(req, res){
+    authenticated = false;
+    res.redirect("/");
   });
 
 
