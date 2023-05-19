@@ -1,0 +1,175 @@
+<%- include("header") %>
+
+<div class="form-body">
+    <div class="row">
+        <div class="form-holder">
+            <div class="form-content">
+                <div class="form-items">
+
+                  <div class="row">
+                  <div class="col-md-11">
+                    <h3>Motor Running Hours - <%= currentYear %></h3>
+                  </div>
+                  <div class="col-md-1">
+                    <div class="form-button mt-3">
+                        <button id="submit" type="submit" class="btn btn-primary btnProductionWtp">></button>
+                    </div>
+                  </div>
+                  </div>
+
+                    <p>Kandy South Water Treatment Plant</p>
+                    <form class="requires-validation" action="/motor" method="post" novalidate>
+
+
+                  <div class="row">
+
+                        <div class="col-md-3 motorName">
+                            <p>Intake Pumps</p>
+                        </div>
+
+                        <div class="col-md-3">
+                            <input class="form-control" type="text" name="intakePumpA" placeholder="Pump-A" required>
+                        </div>
+
+                        <div class="col-md-3">
+                            <input class="form-control" type="text" name="intakePumpB" placeholder="Pump-B" required>
+                        </div>
+
+                        <div class="col-md-3">
+                            <input class="form-control" type="text" name="intakePumpC" placeholder="Pump-C" required>
+                        </div>
+                        </div>
+
+
+                  <div class="row">
+
+                        <div class="col-md-3 motorName">
+                            <p>Mahakanda Pumps</p>
+                        </div>
+
+                        <div class="col-md-3">
+                            <input class="form-control" type="text" name="mahakandaPumpA" placeholder="Pump-A" required>
+                        </div>
+
+                        <div class="col-md-3">
+                            <input class="form-control" type="text" name="mahakandaPumpB" placeholder="Pump-B" required>
+                        </div>
+                        </div>
+
+
+
+                        <div class="row">
+
+                              <div class="col-md-3 motorName">
+                                  <p>Madarangoda Pumps</p>
+                              </div>
+
+                              <div class="col-md-3">
+                                  <input class="form-control" type="text" name="madarangodaPumpA" placeholder="Pump-A" required>
+                              </div>
+
+                              <div class="col-md-3">
+                                  <input class="form-control" type="text" name="madarangodaPumpB" placeholder="Pump-B" required>
+                              </div>
+                              </div>
+
+
+
+                              <div class="row">
+
+                                    <div class="col-md-3 motorName">
+                                        <p>Angunawela Pumps</p>
+                                    </div>
+
+                                    <div class="col-md-3">
+                                        <input class="form-control" type="text" name="angunawelaPumpA" placeholder="Pump-A" required>
+                                    </div>
+
+                                    <div class="col-md-3">
+                                        <input class="form-control" type="text" name="angunawelaPumpB" placeholder="Pump-B" required>
+                                    </div>
+                                    </div>
+
+
+                                    <div class="row">
+
+                                          <div class="col-md-3 motorName">
+                                              <p>Prospect-Hill Pumps</p>
+                                          </div>
+
+                                          <div class="col-md-3">
+                                              <input class="form-control" type="text" name="prospectHillPumpA" placeholder="Pump-A" required>
+                                          </div>
+
+                                          <div class="col-md-3">
+                                              <input class="form-control" type="text" name="prospectHillPumpB" placeholder="Pump-B" required>
+                                          </div>
+                                          </div>
+
+
+
+                                          <div class="row">
+
+                                                <div class="col-md-3 motorName">
+                                                    <p>Kandakaduwa Pumps</p>
+                                                </div>
+
+                                                <div class="col-md-3">
+                                                    <input class="form-control" type="text" name="kandakaduwaPumpA" placeholder="Pump-A" required>
+                                                </div>
+
+                                                <div class="col-md-3">
+                                                    <input class="form-control" type="text" name="kandakaduwaPumpB" placeholder="Pump-B" required>
+                                                </div>
+                                                </div>
+
+
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+                      <label class="form-check-label">I confirm that all data are correct</label>
+                      <div class="invalid-feedback">Please confirm that the entered data are all correct!</div>
+                    </div>
+
+
+                        <div class="form-button mt-3">
+                            <button id="submit" type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+        </div>
+</div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+<script>
+
+    $("button.btnProductionWtp").on("click", function(){
+      window.location.replace("http://localhost:3000/productionWtp"); //Need to change at deployment
+    });
+
+
+
+(function () {
+'use strict'
+const forms = document.querySelectorAll('.requires-validation')
+Array.from(forms)
+  .forEach(function (form) {
+    form.addEventListener('submit', function (event) {
+      if (!form.checkValidity()) {
+        event.preventDefault()
+        event.stopPropagation()
+      }
+
+      form.classList.add('was-validated')
+    }, false)
+  })
+})()
+
+
+</script>
+
+<%- include("footer") %>

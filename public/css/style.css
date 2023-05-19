@@ -208,3 +208,8 @@ html, body {
  left: 160px;
  top: 15px;
 }
+
+.motorName{
+  position: relative;
+  top:25px;
+}

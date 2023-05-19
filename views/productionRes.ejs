@@ -1,0 +1,181 @@
+<%- include("header") %>
+
+<div class="form-body">
+    <div class="row">
+        <div class="form-holder">
+            <div class="form-content">
+                <div class="form-items">
+
+                  <div class="row">
+                  <div class="col-md-11">
+                    <h3>Production Reservoirs - <%= currentYear %></h3>
+                  </div>
+                  <div class="col-md-1">
+                    <div class="form-button mt-3">
+                        <button id="submit" type="submit" class="btn btn-primary btnLogout">></button>
+                    </div>
+                  </div>
+                  </div>
+
+                    <p>Kandy South Water Treatment Plant</p>
+                    <form class="requires-validation" action="/motor" method="post" novalidate>
+
+                      <div class="row">
+
+                            <div class="col-md-6 motorName">
+                                <p>Madarangoda Reservoir</p>
+                            </div>
+
+                            <div class="col-md-3">
+                                <input class="form-control" type="text" name="madarangodaProResIn" placeholder="Input (m3)" required>
+                            </div>
+
+                            <div class="col-md-3">
+                                <input class="form-control" type="text" name="madarangodaProResOut" placeholder="Output (m3)" required>
+                            </div>
+
+                            </div>
+
+
+                            <div class="row">
+
+                                  <div class="col-md-6 motorName">
+                                      <p>Maligathanna Reservoir</p>
+                                  </div>
+
+                                  <div class="col-md-3">
+                                      <input class="form-control" type="text" name="maligathannaProResIn" placeholder="Input (m3)" required>
+                                  </div>
+
+                                  <div class="col-md-3">
+                                      <input class="form-control" type="text" name="maligathannaProResOut" placeholder="Output (m3)" required>
+                                  </div>
+
+                                  </div>
+
+
+                        <div class="row">
+
+                              <div class="col-md-6 motorName">
+                                  <p>Kandakaduwa Reservoir</p>
+                              </div>
+
+                              <div class="col-md-3">
+                                  <input class="form-control" type="text" name="kandakaduwaProResIn" placeholder="Input (m3)" required>
+                              </div>
+                              </div>
+
+
+
+                              <div class="row">
+
+                                    <div class="col-md-6 motorName">
+                                        <p>Prospect-Hill Reservoir</p>
+                                    </div>
+
+                                    <div class="col-md-3">
+                                        <input class="form-control" type="text" name="prospectHillProResIn" placeholder="Input (m3)" required>
+                                    </div>
+                                    </div>
+
+
+
+                                    <div class="row">
+
+                                          <div class="col-md-6 motorName">
+                                              <p>Augustawatta Reservoir</p>
+                                          </div>
+
+                                          <div class="col-md-3">
+                                              <input class="form-control" type="text" name="augustawattaProResIn" placeholder="Input (m3)" required>
+                                          </div>
+                                          </div>
+
+
+                                          <div class="row">
+
+                                                <div class="col-md-6 motorName">
+                                                    <p>Mahakanda Reservoir</p>
+                                                </div>
+
+                                                <div class="col-md-3">
+                                                    <input class="form-control" type="text" name="mahakandaProResIn" placeholder="Input (m3)" required>
+                                                </div>
+                                                </div>
+
+
+
+                                                <div class="row">
+
+                                                      <div class="col-md-6 motorName">
+                                                          <p>Mobray I Reservoir</p>
+                                                      </div>
+
+                                                      <div class="col-md-3">
+                                                          <input class="form-control" type="text" name="mobryProResIn" placeholder="Input (m3)" required>
+                                                      </div>
+                                                      </div>
+
+
+                                                      <div class="row">
+
+                                                            <div class="col-md-6 motorName">
+                                                                <p>Daulagala Reservoir</p>
+                                                            </div>
+
+                                                            <div class="col-md-3">
+                                                                <input class="form-control" type="text" name="daulagalaProResIn" placeholder="Input (m3)" required>
+                                                            </div>
+                                                            </div>
+
+
+
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+                      <label class="form-check-label">I confirm that all data are correct</label>
+                      <div class="invalid-feedback">Please confirm that the entered data are all correct!</div>
+                    </div>
+
+
+                        <div class="form-button mt-3">
+                            <button id="submit" type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+        </div>
+</div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+<script>
+
+    $("button.btnLogout").on("click", function(){
+      window.location.replace("http://localhost:3000/logout"); //Need to change at deployment
+    });
+
+
+
+(function () {
+'use strict'
+const forms = document.querySelectorAll('.requires-validation')
+Array.from(forms)
+  .forEach(function (form) {
+    form.addEventListener('submit', function (event) {
+      if (!form.checkValidity()) {
+        event.preventDefault()
+        event.stopPropagation()
+      }
+
+      form.classList.add('was-validated')
+    }, false)
+  })
+})()
+
+
+</script>
+
+<%- include("footer") %>

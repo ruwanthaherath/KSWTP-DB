@@ -1,0 +1,178 @@
+<%- include("header") %>
+
+<div class="form-body">
+    <div class="row">
+        <div class="form-holder">
+            <div class="form-content">
+                <div class="form-items">
+
+                  <div class="row">
+                  <div class="col-md-11">
+                    <h3>Production KSWTP Pumps - <%= currentYear %></h3>
+                  </div>
+                  <div class="col-md-1">
+                    <div class="form-button mt-3">
+                        <button id="submit" type="submit" class="btn btn-primary btnProductionRes">></button>
+                    </div>
+                  </div>
+                  </div>
+
+                    <p>Kandy South Water Treatment Plant</p>
+                    <form class="requires-validation" action="/motor" method="post" novalidate>
+
+
+                  <div class="row">
+
+                        <div class="col-md-5 motorName">
+                            <p>Intake Pumps</p>
+                        </div>
+
+                        <div class="col-md-7">
+                            <input class="form-control" type="text" name="intakePro" placeholder="Intake Production (m3)" required>
+                        </div>
+
+                        </div>
+
+
+                  <div class="row">
+
+                        <div class="col-md-5 motorName">
+                            <p>Mahakanda Pumps</p>
+                        </div>
+
+                        <div class="col-md-7">
+                            <input class="form-control" type="text" name="mahakandaPro" placeholder="Mahakanda Production (m3)" required>
+                        </div>
+
+                        </div>
+
+
+
+                        <div class="row">
+
+                              <div class="col-md-5 motorName">
+                                  <p>Madarangoda Pumps</p>
+                              </div>
+
+                              <div class="col-md-7">
+                                  <input class="form-control" type="text" name="madarangodaPro" placeholder="Madarangoda Production (m3)" required>
+                              </div>
+                              </div>
+
+
+
+                              <div class="row">
+
+                                    <div class="col-md-5 motorName">
+                                        <p>Angunawela Pumps</p>
+                                    </div>
+
+                                    <div class="col-md-7">
+                                        <input class="form-control" type="text" name="angunawelaPro" placeholder="Angunawela Production (m3)" required>
+                                    </div>
+
+                                    </div>
+
+
+                                    <div class="row">
+
+                                          <div class="col-md-5 motorName">
+                                              <p>Prospect-Hill Pumps</p>
+                                          </div>
+
+                                          <div class="col-md-7">
+                                              <input class="form-control" type="text" name="prospectHillPro" placeholder="ProspectHill Production (m3)" required>
+                                          </div>
+
+                                          </div>
+
+
+
+                                          <div class="row">
+
+                                                <div class="col-md-5 motorName">
+                                                    <p>Kandakaduwa Pumps</p>
+                                                </div>
+
+                                                <div class="col-md-7">
+                                                    <input class="form-control" type="text" name="kandakaduwaPro" placeholder="Kandakaduwa Production (m3)" required>
+                                                </div>
+
+                                                </div>
+
+
+                                                <div class="row">
+
+                                                      <div class="col-md-5 motorName">
+                                                          <p>Backwash Pumps</p>
+                                                      </div>
+
+                                                      <div class="col-md-7">
+                                                          <input class="form-control" type="text" name="backwashPro" placeholder="Backwash Consumption (m3)" required>
+                                                      </div>
+
+                                                      </div>
+
+                                                      <div class="row">
+
+                                                            <div class="col-md-5 motorName">
+                                                                <p>KSWTP Daily production</p>
+                                                            </div>
+
+                                                            <div class="col-md-7">
+                                                                <input class="form-control" type="text" name="kswtpDayProd" placeholder="Daily Production (m3)" required>
+                                                            </div>
+
+                                                            </div>
+
+
+
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+                      <label class="form-check-label">I confirm that all data are correct</label>
+                      <div class="invalid-feedback">Please confirm that the entered data are all correct!</div>
+                    </div>
+
+
+                        <div class="form-button mt-3">
+                            <button id="submit" type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+        </div>
+</div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+<script>
+
+    $("button.btnProductionRes").on("click", function(){
+      window.location.replace("http://localhost:3000/productionRes"); //Need to change at deployment
+    });
+
+
+
+(function () {
+'use strict'
+const forms = document.querySelectorAll('.requires-validation')
+Array.from(forms)
+  .forEach(function (form) {
+    form.addEventListener('submit', function (event) {
+      if (!form.checkValidity()) {
+        event.preventDefault()
+        event.stopPropagation()
+      }
+
+      form.classList.add('was-validated')
+    }, false)
+  })
+})()
+
+
+</script>
+
+<%- include("footer") %>

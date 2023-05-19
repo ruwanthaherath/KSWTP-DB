@@ -119,6 +119,30 @@ const User = mongoose.model("User", userSchema);
   }
   });
 
+  app.get("/motor", function(req, res){
+    if(authenticated === true){
+    res.render("motor", {currentYear: year});
+  } else {
+    res.redirect("/");
+  }
+  });
+
+  app.get("/productionWtp", function(req, res){
+    if(authenticated === true){
+    res.render("productionWtp", {currentYear: year});
+  } else {
+    res.redirect("/");
+  }
+  });
+
+  app.get("/productionRes", function(req, res){
+    if(authenticated === true){
+    res.render("productionRes", {currentYear: year});
+  } else {
+    res.redirect("/");
+  }
+  });
+
   app.get("/logout", function(req, res){
     if(authenticated === true){
     res.render("logout");
@@ -126,6 +150,9 @@ const User = mongoose.model("User", userSchema);
       res.redirect("/");
     }
   });
+
+
+
 
   app.post("/register", async function(req, res) {
       const email = req.body.username;
@@ -180,7 +207,7 @@ const User = mongoose.model("User", userSchema);
     });
   });
 
-  app.post("/body", function(req, res){
+ app.post("/body", function(req, res){
 
   const siteName = req.body.site;
   let accNo = 0;
@@ -253,7 +280,7 @@ const User = mongoose.model("User", userSchema);
         console.log(err);
       }
     });
-      res.redirect("/body");
+            res.render("body", {currentYear: year});
 
   } else if(siteName === "CSWTP"){
 
@@ -286,7 +313,7 @@ const User = mongoose.model("User", userSchema);
       console.log(err);
     }
   });
-    res.redirect("/body");
+            res.render("body", {currentYear: year});
 
   } else{
 
@@ -319,7 +346,7 @@ const User = mongoose.model("User", userSchema);
         console.log(err);
       }
     });
-      res.redirect("/body");
+            res.render("body", {currentYear: year});
 
   }
 
